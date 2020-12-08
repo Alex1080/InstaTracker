@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  InstaTracker
+
+  Created by Alex Morkovkin on 02.12.2020.
+  
+*/
+
+"navigation.tab.users" = "All";
+"navigation.tab.leftUsers" = "Left users";
+"navigation.tab.statistics" = "Statistics";
+"navigation.tab.settings" = "Settings";
+
+"navigation.tab.users.update" = "Update";
+
+"navigation.tab.users.table.onlyI" = "Only I";
+"navigation.tab.users.table.onlyThey" = "Only They";
+"navigation.tab.users.table.both" = "Both";
+
+"navigation.tab.leftUsers.whenLeft" = "Unfollow:";
+
+"navigation.tab.settings.button.clear" = "Clear \"Left users\"";
+"navigation.tab.settings.button.logOut" = "Log out";
+
+"alert.notification" = "Notification";
+"alert.cleared" = "Section \"Left users\" cleared";
+"alert.logOut" = "You have logged out";
+
+"notification.title" = "А кто сегодня отписался от тебя?";
+"notification.body" = "Не забывай следить за теми, кто отписывается от тебя, это происходит постоянно, будь в курсе!";
