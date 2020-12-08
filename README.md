@@ -8,7 +8,7 @@ Instagram tracker for iOS is a simple app that allow you
 The App uses private api of instagram [SwiftyInsta](https://github.com/TheM4hd1/SwiftyInsta), keep it mind and use this at your own risk.
 
 # Interface
-![boardapp](https://user-images.githubusercontent.com/12782780/101457043-c4ffc800-3956-11eb-9aa5-147ff5ecbc86.png)
+![boardapp copy](https://user-images.githubusercontent.com/12782780/101458247-73f0d380-3958-11eb-9d33-0eecece90267.png)
 
 # Dependencies
   - [Charts](https://github.com/danielgindi/Charts)
