@@ -9,6 +9,8 @@ extension MainTabBarController {
 
     func createUsers() -> UIViewController {
         let users = UsersViewController()
+        users.viewModel = UserViewModel()
+
         let usersImage = UIImage(systemName: "person.3.fill", withConfiguration: MainTabBarController.boldConfig)!
 
         let navigationController = createNavigationController(
@@ -22,7 +24,7 @@ extension MainTabBarController {
                 title: L10n.Navigation.Tab.Users.update,
                 style: .plain,
                 target: users,
-                action: #selector(users.updateTapped(_:))
+                action: #selector(UsersViewController.updateTapped(_:))
         )
 
         navigationController.topViewController?.navigationItem.rightBarButtonItem = button
@@ -32,6 +34,8 @@ extension MainTabBarController {
 
     func createLeftUsers() -> UIViewController {
         let leftUsers = LeftUsersViewController()
+        leftUsers.viewModel = LeftUserViewModel()
+        
         let leftUsersImage = UIImage(systemName: "person.badge.minus", withConfiguration: MainTabBarController.boldConfig)!
 
         return createNavigationController(

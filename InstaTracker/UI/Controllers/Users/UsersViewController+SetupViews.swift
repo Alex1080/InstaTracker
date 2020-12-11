@@ -57,7 +57,7 @@ extension UsersViewController {
                 imageView.contentMode = .scaleAspectFit
                 imageView.image = UIImage(named: "Image")
 
-                if let url = user.picture {
+                if let url = user.profilePicture {
                     imageView.loadImage(at: url)
                 }
 

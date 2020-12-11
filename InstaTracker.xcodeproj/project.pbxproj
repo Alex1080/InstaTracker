@@ -37,6 +37,9 @@
 		62232BA62577B9F3002D6A8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62232BA82577B9F3002D6A8D /* Localizable.strings */; };
 		6285A08D256819A500702EEB /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6285A08B256819A500702EEB /* UsersViewController.swift */; };
 		628CCAEA257E0DFE001353F9 /* InstaTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 628CCAE8257E0DFE001353F9 /* InstaTracker.xcdatamodeld */; };
+		629403512583C6AE00291BCA /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629403502583C6AE00291BCA /* UserCellViewModel.swift */; };
+		629403572583C6C200291BCA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629403562583C6C200291BCA /* UserViewModel.swift */; };
+		6294035D2583C6CD00291BCA /* LeftUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294035C2583C6CD00291BCA /* LeftUserViewModel.swift */; };
 		6294B3FC257521D40036C90E /* LeftUserViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294B3FB257521D40036C90E /* LeftUserViewController+TableView.swift */; };
 		6294B402257528170036C90E /* Statistic+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294B401257528170036C90E /* Statistic+Extension.swift */; };
 		6294B40A2575299E0036C90E /* SettingsViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6294B4092575299E0036C90E /* SettingsViewController+TableView.swift */; };
@@ -99,6 +102,9 @@
 		62232BAC2577BA06002D6A8D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6285A08B256819A500702EEB /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		628CCAE9257E0DFE001353F9 /* InstaTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstaTracker.xcdatamodel; sourceTree = "<group>"; };
+		629403502583C6AE00291BCA /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
+		629403562583C6C200291BCA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		6294035C2583C6CD00291BCA /* LeftUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftUserViewModel.swift; sourceTree = "<group>"; };
 		6294B3FB257521D40036C90E /* LeftUserViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeftUserViewController+TableView.swift"; sourceTree = "<group>"; };
 		6294B401257528170036C90E /* Statistic+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statistic+Extension.swift"; sourceTree = "<group>"; };
 		6294B4092575299E0036C90E /* SettingsViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewController+TableView.swift"; sourceTree = "<group>"; };
@@ -247,6 +253,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		6294034F2583C68F00291BCA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				629403502583C6AE00291BCA /* UserCellViewModel.swift */,
+				629403562583C6C200291BCA /* UserViewModel.swift */,
+				6294035C2583C6CD00291BCA /* LeftUserViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		6294B400257527FC0036C90E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +360,7 @@
 				62D313F425751B52004AABCD /* UI */,
 				62039EBD256E89BA00EF23C0 /* Extensions */,
 				62A6D8C52527C1EA003D81F6 /* Model */,
+				6294034F2583C68F00291BCA /* ViewModels */,
 				5674E2874DF476E67F89A707 /* Services */,
 				62232BBF2577C3D3002D6A8D /* Locale */,
 				62D6796D2527616000EA9599 /* Assets.xcassets */,
@@ -544,8 +561,10 @@
 				62039F07256FAAB200EF23C0 /* UIFont+DefaultFonts.swift in Sources */,
 				62039EE6256E996900EF23C0 /* UserTableViewCell.swift in Sources */,
 				62039EC7256E8EE300EF23C0 /* InstagramOpener.swift in Sources */,
+				6294035D2583C6CD00291BCA /* LeftUserViewModel.swift in Sources */,
 				62A6D8E12528E0C2003D81F6 /* Instagram.swift in Sources */,
 				62039F8B257165B300EF23C0 /* XAxisFormatter.swift in Sources */,
+				629403512583C6AE00291BCA /* UserCellViewModel.swift in Sources */,
 				6294B42B25752DD80036C90E /* UsersViewController+TableView.swift in Sources */,
 				62039F722570F59400EF23C0 /* StatisticViewController.swift in Sources */,
 				6294B43325752E3A0036C90E /* Section.swift in Sources */,
@@ -557,6 +576,7 @@
 				62039F902571679C00EF23C0 /* StatisticViewController+SetupViews.swift in Sources */,
 				6294B41325752B3A0036C90E /* SettingsViewController+SetupViews.swift in Sources */,
 				62D679652527615E00EA9599 /* AppDelegate.swift in Sources */,
+				629403572583C6C200291BCA /* UserViewModel.swift in Sources */,
 				620E76062568339400705CBF /* SettingsViewController.swift in Sources */,
 				62D679672527615E00EA9599 /* SceneDelegate.swift in Sources */,
 				62039ECC256E97CF00EF23C0 /* LeftUsersViewController.swift in Sources */,

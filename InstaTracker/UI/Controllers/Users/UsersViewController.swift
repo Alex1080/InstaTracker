@@ -23,9 +23,7 @@ class UsersViewController: UIViewController {
         return loading
     }()
     
-    var onlyI = [User]()
-    var onlyThey = [User]()
-    var common = [User]()
+    var viewModel: UserViewModel!
 
     let instagram = Instagram()
     
@@ -45,15 +43,7 @@ class UsersViewController: UIViewController {
     }
     
     func prepareTable() {
-        let following = Storage.shared.loadFollowing()
-        let followed = Storage.shared.loadFollowed()
-        
-        let calculator = DiffCalculator()
-        
-        onlyI = calculator.diffState(newState: following, oldState: followed)
-        onlyThey = calculator.diffState(newState: followed, oldState: following)
-        common = calculator.common(newState: followed, oldState: following)
-        
+        viewModel.refresh()
         tableView.reloadData()
     }
     

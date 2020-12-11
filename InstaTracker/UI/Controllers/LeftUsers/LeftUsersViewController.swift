@@ -19,8 +19,7 @@ class LeftUsersViewController: UIViewController {
         return tableView
     }()
     
-    var users = [User]()
-    var dates: [String:String]!
+    var viewModel: LeftUserViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,22 +31,6 @@ class LeftUsersViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        prepareUsers()
         tableView.reloadData()
-    }
-    
-    fileprivate func prepareUsers() {
-        dates = [String:String]()
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.YYYY"
-
-        users = Storage.shared.loadShapshots().flatMap { (snapshot) -> [User] in
-            for follower in snapshot.followers! {
-                dates[follower.username] = formatter.string(from: snapshot.date!)
-            }
-            
-            return snapshot.followers!
-        }
     }
 }

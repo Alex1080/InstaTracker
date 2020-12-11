@@ -11,24 +11,17 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         Section.allCases.count
     }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.font = .titleFont()
-        header.textLabel?.frame = header.frame
-        header.textLabel?.textAlignment = .left
-    }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count: Int
 
         switch section {
         case Section.OnlyI.rawValue:
-            count = onlyI.count
+            count = viewModel.onlyI.count
         case Section.OnlyThey.rawValue:
-            count = onlyThey.count
+            count = viewModel.onlyThey.count
         case Section.Both.rawValue:
-            count = common.count
+            count = viewModel.common.count
         default:
             fatalError("Not all cases were implemented")
         }
@@ -41,11 +34,11 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
 
         switch section {
         case Section.OnlyI.rawValue:
-            header = L10n.Navigation.Tab.Users.onlyI + " (\(onlyI.count))";
+            header = L10n.Navigation.Tab.Users.onlyI + " (\(viewModel.onlyI.count))";
         case Section.OnlyThey.rawValue:
-            header = L10n.Navigation.Tab.Users.onlyThey + " (\(onlyThey.count))"
+            header = L10n.Navigation.Tab.Users.onlyThey + " (\(viewModel.onlyThey.count))"
         case Section.Both.rawValue:
-            header = L10n.Navigation.Tab.Users.both + " (\(common.count))"
+            header = L10n.Navigation.Tab.Users.both + " (\(viewModel.common.count))"
         default:
             fatalError("Not all cases were implemented")
         }
@@ -56,19 +49,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.reuseIdentifier, for: indexPath) as! UserTableViewCell
 
-        let user = getUserForSection(indexPath: indexPath)
-
-        cell.name.text = user.name
-        cell.username.text = user.username
-        cell.whenLeft.isHidden = true
-        cell.profilePicture.image = UIImage(named: "Image")
-
-        cell.lockIcon.isHidden = !user.isPrivate
-        
-        if let url = user.picture {
-            cell.profilePicture.loadImage(at: url)
-        }
-        
+        cell.viewModel = getUserForSection(indexPath: indexPath)
         cell.layoutIfNeeded()
 
         return cell
@@ -76,7 +57,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if indexPath.section == Section.OnlyI.rawValue && editingStyle == .delete{
-            onlyI.remove(at: indexPath.row)
+            viewModel.onlyI.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -91,16 +72,16 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func getUserForSection(indexPath: IndexPath) -> User {
-        var user: User
+    func getUserForSection(indexPath: IndexPath) -> UserCellViewModel {
+        var user: UserCellViewModel
 
         switch indexPath.section {
         case Section.OnlyI.rawValue:
-            user = onlyI[indexPath.row]
+            user = viewModel.onlyI[indexPath.row]
         case Section.OnlyThey.rawValue:
-            user = onlyThey[indexPath.row]
+            user = viewModel.onlyThey[indexPath.row]
         case Section.Both.rawValue:
-            user = common[indexPath.row]
+            user = viewModel.common[indexPath.row]
         default:
             fatalError("Not all cases were implemented")
         }
