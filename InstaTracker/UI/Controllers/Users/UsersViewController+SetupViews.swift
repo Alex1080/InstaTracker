@@ -47,7 +47,7 @@ extension UsersViewController {
             let touchPoint = longPressGestureRecognizer.location(in: tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 
-                let user = getUserForSection(indexPath: indexPath)
+                let user = viewModel.getUserForSection(indexPath: indexPath)
 
                 let viewController = UIViewController()
                 viewController.modalPresentationStyle = .automatic
