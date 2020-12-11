@@ -32,6 +32,8 @@ extension LeftUsersViewController : UITableViewDelegate, UITableViewDataSource {
             cell.profilePicture.loadImage(at: url)
         }
         
+        cell.layoutIfNeeded()
+        
         return cell
     }
     
