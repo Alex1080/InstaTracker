@@ -46,6 +46,24 @@ class UserTableViewCell: UITableViewCell {
         return imageView
     }()
 
+    var viewModel: UserCellViewModel! {
+        didSet {
+            name.text = viewModel.name
+            username.text = viewModel.username
+            whenLeft.text = viewModel.whenLeft
+
+            name.isHidden = viewModel.nameHidden
+            whenLeft.isHidden = viewModel.whenLeftHidden
+            lockIcon.isHidden = viewModel.lockIconHidden
+
+            profilePicture.image = UIImage(named: "Image")
+
+            if let url = viewModel.profilePicture {
+                profilePicture.loadImage(at: url)
+            }
+        }
+    }
+    
     var onReuse: () -> Void = {}
 
     override init(style: CellStyle, reuseIdentifier: String?) {
